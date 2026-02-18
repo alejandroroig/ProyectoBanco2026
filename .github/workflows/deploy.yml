@@ -37,10 +37,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # 5. Calcular nombre de imagen en minúsculas (Requisito de Docker)
+      # 5. Calcular nombre de imagen en minúsculas (Vital)
       - name: Lowercase Image Name
         run: |
-          echo "IMAGE_NAME=ghcr.io/${{ github.repository }}" | tr '[:upper:]' '[:lower:]' >> $GITHUB_ENV
+          # Convertimos el nombre del repo a minúsculas y lo guardamos en IMAGE_NAME (Mayúsculas)
+          echo "IMAGE_NAME=$(echo ghcr.io/${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       # 6. Construir y Subir Imagen Docker
       - name: Build and push Docker image
@@ -48,6 +49,7 @@ jobs:
         with:
           context: .
           push: true
+          # Ahora llamamos a IMAGE_NAME que ya existe en el entorno
           tags: ${{ env.IMAGE_NAME }}:${{ github.run_number }}
 
       # 7. Generar archivo docker-compose.yml
