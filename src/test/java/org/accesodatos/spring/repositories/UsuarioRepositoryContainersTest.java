@@ -16,7 +16,6 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-@Disabled("Deshabilitado temporalmente para el despliegue en AWS")
 @DataJpaTest
 @Testcontainers // Habilita la gestión automática de contenedores
 @TestPropertySource(properties = {"spring.jpa.hibernate.ddl-auto=create-drop"}) // Hibernate genera las tablas en el contenedor
@@ -33,7 +32,7 @@ public class UsuarioRepositoryContainersTest {
     @Autowired
     private EntityManager entityManager;
 
-    @Test
+    //@Test
     void eliminarUsuario_DebeEliminarPerfilEnCascada_RealDB() {
         // GIVEN: Datos completos para cumplir con las restricciones NOT NULL
         Usuario usuario = new Usuario();
