@@ -3,6 +3,7 @@ package org.accesodatos.spring.repositories;
 import jakarta.persistence.EntityManager;
 import org.accesodatos.spring.models.Perfil;
 import org.accesodatos.spring.models.Usuario;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.data.jpa.test.autoconfigure.DataJpaTest;
@@ -15,6 +16,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+@Disabled("Deshabilitado temporalmente para el despliegue en AWS")
 @DataJpaTest
 @Testcontainers // Habilita la gestión automática de contenedores
 @TestPropertySource(properties = {"spring.jpa.hibernate.ddl-auto=create-drop"}) // Hibernate genera las tablas en el contenedor

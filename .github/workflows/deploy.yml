@@ -72,7 +72,7 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_session_token: ${{ secrets.AWS_SESSION_TOKEN }}
           region: us-east-1
-          application_name: BancoAPI      # Tu nombre de App
-          environment_name: BancoAPI-env  # Tu nombre de Entorno
+          application_name: BancoAPI      # Tu nombre de App en EB
+          environment_name: BancoAPI-env  # Tu nombre de Entorno en EB
           version_label: "banco-v-${{ github.run_number }}"
           deployment_package: docker-compose.yml
