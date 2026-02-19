@@ -27,7 +27,7 @@ jobs:
 
       # 3. Compilar y probar (-DskipTests)
       - name: Build with Maven
-        run: mvn clean package -DskipTests
+        run: mvn clean package
 
       # 4. Login en GitHub Container Registry
       - name: Log in to the Container registry
@@ -62,6 +62,10 @@ jobs:
               image: ${{ env.IMAGE_NAME }}:${{ github.run_number }}
               ports:
                 - '80:8080'
+              environment:
+                - SPRING_DATASOURCE_URL
+                - SPRING_DATASOURCE_USERNAME
+                - SPRING_DATASOURCE_PASSWORD
               restart: always" > docker-compose.yml
 
       # 8. Desplegar en AWS Elastic Beanstalk
