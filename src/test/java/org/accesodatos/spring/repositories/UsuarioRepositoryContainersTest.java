@@ -32,7 +32,7 @@ public class UsuarioRepositoryContainersTest {
     @Autowired
     private EntityManager entityManager;
 
-    //@Test
+     //@Test
     void eliminarUsuario_DebeEliminarPerfilEnCascada_RealDB() {
         // GIVEN: Datos completos para cumplir con las restricciones NOT NULL
         Usuario usuario = new Usuario();
